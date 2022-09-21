@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+   {% if cursos %}
+
+    <ul>
+        {% for curso in cursos %}
+            <li>Nombre: {{curso.nombre}}, Camada: {{curso.camada}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+
+        <p>No se encontraron cursos</p>
+    {% endif %}
+
+
+{%  endblock %}
+
+
+

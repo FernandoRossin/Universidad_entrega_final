@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+  
+  <h1>Profesores</h1>
+  {% if request.user.is_authenticated %}
+  <button>
+    <a href="carga_profesor">Agregar profesor</a>
+  </button>
+  {% endif %}
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">email</th>
+          <th scope="col">Profesion</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+          {% for n in profesores %}
+          <tr>
+              <th>{{n.id}}</th>
+              <td>{{n.nombre}}</td>
+              <td>{{n.apellido}}</td>
+              <td>{{n.email}}</td>
+              <td>{{n.profesion}}</td>
+              {% if request.user.is_authenticated %}
+              <td><a href="{% url 'eliminar_profesor' n.id %}">BORRAR</a></td>
+              <td><a href="{% url 'editar_profesor' n.id %}">EDITAR</a></td>
+              {% endif %}
+          </tr>
+          
+          {% endfor %}      
+          
+      </tbody>
+    </table>
+    
+
+  
+
+{%  endblock %}
+
+
+

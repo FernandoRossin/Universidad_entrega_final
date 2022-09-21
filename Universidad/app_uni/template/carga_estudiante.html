@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="carga_estudiante" method="POST">
+        {% csrf_token %}
+
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>email:</p>
+        <input type="email" name="email" required>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+
+{%  endblock %}
+
+
+

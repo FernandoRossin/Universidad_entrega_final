@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="{% url 'editar_profesor' profesor.id %}" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>Email:</p>
+        <input type="email" name="email" required>
+        <p>Profesion:</p>
+        <input type="text" name="profesion" required>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+
+{%  endblock %}
+
+
+
